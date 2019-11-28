@@ -1,0 +1,13 @@
+{% extends "vendordb/base.html" %}
+
+{% block content %}
+
+  <p>Add a new vendor:</p>
+
+  <form action="{% url 'vendordb:new_vendor' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Add vendor</button>
+  </form>
+
+{% endblock content %}
