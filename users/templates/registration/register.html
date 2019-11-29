@@ -1,0 +1,13 @@
+{% extends "vendordb/base.html" %}
+
+{% block content %}
+
+  <form method="post" action="{% url 'users:register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button name="submit">Log in</button>
+    <input type="hidden" name="next" value="{% url 'vendordb:index' %}" />
+  </form>
+
+{% endblock content %}

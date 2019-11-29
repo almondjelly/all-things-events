@@ -16,6 +16,13 @@ def vendors(request):
     return render(request, 'vendordb/vendors.html', context)
 
 
+def vendor(request, vendor_id):
+    """Show a single vendor."""
+    vendor = Vendor.objects.get(id=vendor_id)
+    context = {'vendor': vendor}
+    return render(request, 'vendordb/vendor.html', context)
+
+
 def new_vendor(request):
     """Add a new vendor."""
     if request.method != 'POST':

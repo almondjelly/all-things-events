@@ -1,11 +1,15 @@
-{% extends "vendordb/base.html" %}
+{% extends 'vendordb/base.html' %}
 
 {% block content %}
 
   <p>Vendors</p>
 
   <ul>
-      
+      {% for vendor in vendors %}
+        <li><a href="{% url 'vendordb:vendor' vendor.id %}">{{ vendor }}</a></li>
+      {% empty %}
+        <li>No vendors have been added yet.</li>
+      {% endfor %}
   </ul>
 
   <a href="{% url 'vendordb:new_vendor' %}">Add a new vendor</a>
